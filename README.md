@@ -12,10 +12,10 @@ It's available as a gem via RubyGems.org, so use standard procedure:
   
 If you're using Bundler, just add `gem "sinatra-mongoid-config"` to your `Gemfile`.
 
-Use
----
+Using the Extension
+-------------------
 
-As with all Sinatra extensions, it's simply a matter of **requiring the library** and **registering the extension**. Other than that, you just need to **set the database name**.
+As with all Sinatra extensions, it's simply a matter of **requiring the library** and **registering the extension**. Other than that, you should just **set the database name**.
 
     require 'sinatra'
     require 'sinatra-mongoid-config'
@@ -40,7 +40,7 @@ Note that this extension works fine both with classic-style Sinatra apps like th
     app.set :mongo_user,     ENV['MONGO_USER']
     app.set :mongo_password, ENV['MONGO_PASSWORD']
 
-All configuration options have sensible defaults listed above, and in most cases, you can get away with just setting the `:mongo_db`. Remember that you can also change settings for each environment:
+All configuration options have **sensible defaults listed above**, and in most cases, you can get away with just setting the `:mongo_db`. Remember that you can also change settings for each environment:
 
     configure do
       set :mongo_db, 'the_database_development'
