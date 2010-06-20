@@ -58,6 +58,8 @@ All options are set using Sinatra&rsquo;s standard `set` method. Remember that y
       set :mongo_user, 'the_user'
       set :mongo_password, 'the_password'
     end
+
+### Defaults
     
 All configuration options have **sensible defaults listed below**, and depending on your situation, you may not have to set anything. 
 
@@ -94,7 +96,7 @@ All configuration options have **sensible defaults listed below**, and depending
 
 ### Default DB Naming Convention
 
-Did you notice the call to `self.app_to_db_name`? That method attempts to be smart about what your database is named by using **the class name of your app and the current environment**. The real benefit here is for those who are creating "modular" apps, as they are named something other than the Sinatra default. Here are some examples:
+Did you notice that the default for `:mongo_db` calls `self.app_to_db_name`? That method attempts to be smart about what your database is named by using **the class name of your app and the current environment**. The real benefit here is for those who are creating "modular" apps, as they are named something other than the Sinatra default. Here are some examples:
 
 <table>
   <thead>
