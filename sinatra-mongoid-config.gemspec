@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
 
   s.authors     = [ "Matt Puchlerz" ]
   s.date        = "2010-06-19"
-  s.description = "Easy configuration when using Mongoid within a Sinatra app."
+  s.description = "Easy configuration when using Mongoid within a Sinatra app. Lazily creates the database connection when called upon."
   s.email       = "matt@puchlerz.com"
   s.homepage    = "http://github.com/mattpuchlerz/sinatra-mongoid-config"
   s.summary     = "Mongoid config for Sinatra."
