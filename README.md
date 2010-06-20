@@ -15,7 +15,7 @@ If you're using Bundler, just add `gem "sinatra-mongoid-config"` to your `Gemfil
 Using the Extension
 -------------------
 
-As with all Sinatra extensions, it's simply a matter of **requiring the library** and **registering the extension**. Other than that, you should just **set the database name**.
+As with all Sinatra extensions, it's simply a matter of **requiring the library** and **registering the extension**. Other than that, you should just **set the database name**. Here's a sample Sinatra app:
 
     require 'sinatra'
     require 'sinatra-mongoid-config'
