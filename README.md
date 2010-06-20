@@ -1,12 +1,12 @@
 sinatra-mongoid-config
 ======================
 
-Easy configuration when using Mongoid within a Sinatra app. Lazily creates the database connection when called upon.
+Add Monogid to your Sinatra app with potentially zero-configuration. Lazily create the database connection whenever needed.
 
 Installation
 ------------
 
-It's available as a gem via RubyGems.org, so use standard procedure:
+It&lsquo;s available as a gem via RubyGems.org, so use standard procedure:
 
     $ gem install sinatra-mongoid-config
   
@@ -15,9 +15,9 @@ If you're using Bundler, just add `gem "sinatra-mongoid-config"` to your `Gemfil
 Using the Extension
 -------------------
 
-This extension works fine with both "classic" Sinatra apps, as well as "modular" apps which inherit from `Sinatra::Base`. How you use the extension varies slightly between styles.
+This extension works fine with both &ldquo;classic&rdquo; Sinatra apps, as well as &ldquo;modular&rdquo; apps which inherit from `Sinatra::Base`. How you use the extension varies slightly between styles.
 
-### "Classic"
+### &ldquo;Classic&rdquo;
 
     require 'rubygems'
     require 'sinatra'
@@ -27,7 +27,7 @@ This extension works fine with both "classic" Sinatra apps, as well as "modular"
       'It works!'
     end
 
-### "Modular"
+### &ldquo;Modular&rdquo;
 
     require 'rubygems'
     require 'sinatra'
@@ -46,7 +46,7 @@ This extension works fine with both "classic" Sinatra apps, as well as "modular"
 Options & Defaults
 ------------------
 
-All options are set using Sinatra's standard `set` method. Remember that you can also change settings for each environment:
+All options are set using Sinatra&lsquo;s standard `set` method. Remember that you can also change settings for each environment:
 
     configure do
       set :mongo_db, 'the_database'
@@ -64,8 +64,8 @@ All configuration options have **sensible defaults listed below**, and depending
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Option</th>
-      <th style="text-align: left">Default</th>
+      <th>Option</th>
+      <th>Default</th>
     </tr>
   </thead>
   <tbody>
@@ -92,36 +92,38 @@ All configuration options have **sensible defaults listed below**, and depending
   </tbody>
 </table>
 
-Did you notice the call to `self.app_to_db_name`? That method attempts to be smart about what your database is named, based on **the class name of your app and the current environment**. The real benefit here is for those who are creating "modular" apps, as they are named something other than the Sinatra default. Here are some examples:
+### Default DB Naming Convention
+
+Did you notice the call to `self.app_to_db_name`? That method attempts to be smart about what your database is named by using **the class name of your app and the current environment**. The real benefit here is for those who are creating "modular" apps, as they are named something other than the Sinatra default. Here are some examples:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">App&rsquo;s Class Name</th>
-      <th style="text-align: left">Environment</th>
-      <th style="text-align: left">Resulting Database Name</th>
+      <th>App&rsquo;s Class Name</th>
+      <th>Environment</th>
+      <th>Resulting Database Name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>Refresh</code></td>
       <td><code>:development</code></td>
-      <td><code>refresh_development</code></td>
+      <td><code>'refresh_development'</code></td>
     </tr>
     <tr>
       <td><code>RefreshChicago</code></td>
       <td><code>:test</code></td>
-      <td><code>refresh_chicago_test</code></td>
+      <td><code>'refresh_chicago_test'</code></td>
     </tr>
     <tr>
       <td><code>RefreshChicago::Jobs</code></td>
       <td><code>:production</code></td>
-      <td><code>refresh_chicago_jobs_production</code></td>
+      <td><code>'refresh_chicago_jobs_production'</code></td>
     </tr>
     <tr>
       <td><code>Sinatra::Application</code></td>
       <td><code>:development</code></td>
-      <td><code>sinatra_application_development</code></td>
+      <td><code>'sinatra_application_development'</code></td>
     </tr>
   </tbody>
 </table>

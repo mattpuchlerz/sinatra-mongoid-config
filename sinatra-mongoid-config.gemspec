@@ -4,10 +4,10 @@ Gem::Specification.new do |s|
 
   s.authors     = [ "Matt Puchlerz" ]
   s.date        = "2010-06-19"
-  s.description = "Easy configuration when using Mongoid within a Sinatra app. Lazily creates the database connection when called upon."
+  s.description = "Add Monogid to your Sinatra app with potentially zero-configuration. Lazily creates the database connection whenever needed."
   s.email       = "matt@puchlerz.com"
   s.homepage    = "http://github.com/mattpuchlerz/sinatra-mongoid-config"
-  s.summary     = "Mongoid config for Sinatra."
+  s.summary     = "Easy Mongoid config for Sinatra."
 
   s.files  = %w[ README.md ]
   s.files += Dir["lib/**/*"]
