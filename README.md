@@ -46,7 +46,7 @@ This extension works fine with both &ldquo;classic&rdquo; Sinatra apps, as well 
 Options & Defaults
 ------------------
 
-All options are set using Sinatra&lsquo;s standard `set` method. Remember that you can also change settings for each environment:
+All options are set using Sinatra&rsquo;s standard `set` method. Remember that you can also change settings for each environment:
 
     configure do
       set :mongo_db, 'the_database'
