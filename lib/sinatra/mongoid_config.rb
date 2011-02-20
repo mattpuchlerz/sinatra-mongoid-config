@@ -18,7 +18,9 @@ module Mongoid
       unless @master
         # URI takes precendence over particular settings
         if @sinatra_app.mongo_uri
-          self.master = Mongo::Connection.from_uri(@sinatra_app.mongo_uri)
+          uri = @sinatra_app.mongo_uri
+          db_name = URI.parse(uri).path.gsub(/^\//, '')
+          self.master = Mongo::Connection.from_uri(uri).db(db_name)
         else
           self.master = Mongo::Connection.new(@sinatra_app.mongo_host, @sinatra_app.mongo_port).db(@sinatra_app.mongo_db)
           @master.authenticate(@sinatra_app.mongo_user, @sinatra_app.mongo_password) if @sinatra_app.mongo_user
