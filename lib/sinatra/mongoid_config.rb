@@ -16,8 +16,13 @@ module Mongoid
     # attempt to connect using options from the Sinatra app.
     def master_with_autoconnect
       unless @master
-        self.master = Mongo::Connection.new(@sinatra_app.mongo_host, @sinatra_app.mongo_port).db(@sinatra_app.mongo_db)
-        @master.authenticate(@sinatra_app.mongo_user, @sinatra_app.mongo_password) if @sinatra_app.mongo_user
+        # URI takes precendence over particular settings
+        if @sinatra_app.mongo_uri
+          self.master = Mongo::Connection.from_uri(@sinatra_app.mongo_uri)
+        else
+          self.master = Mongo::Connection.new(@sinatra_app.mongo_host, @sinatra_app.mongo_port).db(@sinatra_app.mongo_db)
+          @master.authenticate(@sinatra_app.mongo_user, @sinatra_app.mongo_password) if @sinatra_app.mongo_user
+        end
       end
       master_without_autoconnect
     end
@@ -36,6 +41,7 @@ module Sinatra
     def self.registered app
       Mongoid.configure.sinatra_app = app
       
+      app.set :mongo_uri,      ENV['MONGO_URI']
       app.set :mongo_host,     ENV['MONGO_HOST'] || 'localhost'
       app.set :mongo_db,       ENV['MONGO_DB']   || self.app_to_db_name(app)
       app.set :mongo_port,     ENV['MONGO_PORT'] || Mongo::Connection::DEFAULT_PORT
