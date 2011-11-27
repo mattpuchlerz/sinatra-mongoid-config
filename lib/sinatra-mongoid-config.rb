@@ -1,1 +1,1 @@
-require File.dirname(__FILE__) + '/sinatra/mongoid_config'
+require 'sinatra/mongoid_config'
