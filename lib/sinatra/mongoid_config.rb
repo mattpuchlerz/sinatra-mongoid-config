@@ -1,8 +1,6 @@
 require 'sinatra/base'
 require 'mongoid'
 
-
-
 module Mongoid
   class Config
     
