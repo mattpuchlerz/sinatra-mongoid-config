@@ -1,5 +1,5 @@
+# -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
-  # -*- encoding: utf-8 -*-
   $:.push File.expand_path("../lib", __FILE__)
   require "version"
   s.name    = "sinatra-mongoid-config"
