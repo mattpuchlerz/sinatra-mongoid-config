@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'mongoid'
 
 module Mongoid
-  class Config
+  module Config
     
     # Sets a reference to the Sinatra app in which
     # this extension is registered.
