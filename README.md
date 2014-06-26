@@ -59,6 +59,13 @@ All options are set using Sinatra&rsquo;s standard `set` method. Remember that y
       set :mongo_password, 'the_password'
     end
 
+Optionally, you can use the full MongoDB URI (i.e. on Heroku):
+
+    # ENV['MONGOHQ_URL'] # => "mongodb://USER:PASS@HOST:PORT/DB"
+    configure :production do
+      set :mongo_uri, ENV['MONGOHQ_URL']
+    end
+
 ### Defaults
     
 All configuration options have **sensible defaults listed below**, and depending on your situation, you may not have to set anything. 
@@ -71,6 +78,10 @@ All configuration options have **sensible defaults listed below**, and depending
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code>:mongo_uri</code></td>
+      <td><code>ENV['MONGO_URI']</code></td>
+    </tr>
     <tr>
       <td><code>:mongo_host</code></td>
       <td><code>ENV['MONGO_HOST'] || 'localhost'</code></td>
