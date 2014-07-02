@@ -1,2 +1,5 @@
 *.gem
 app.rb
+.bundle
+Gemfile.lock
+pkg/*

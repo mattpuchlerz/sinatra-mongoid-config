@@ -1,6 +1,9 @@
+# -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
+  $:.push File.expand_path("../lib", __FILE__)
+  require "version"
   s.name    = "sinatra-mongoid-config"
-  s.version = "0.1.0"
+  s.version = Sinatra::MongoidConfig::VERSION
 
   s.authors     = [ "Matt Puchlerz" ]
   s.date        = "2010-06-19"
@@ -12,6 +15,8 @@ Gem::Specification.new do |s|
   s.files  = %w[ README.md ]
   s.files += Dir["lib/**/*"]
 
-  s.add_dependency "sinatra", [ ">= 1.0" ]
-  s.add_dependency "mongoid", [ ">= 2.0.0.beta7" ]
+  s.add_runtime_dependency "sinatra", [ ">= 1.0" ]
+  s.add_runtime_dependency "mongoid", [ ">= 2.0.0.beta7" ]
+  s.add_development_dependency "rake"
+  s.add_development_dependency "geminabox"
 end
